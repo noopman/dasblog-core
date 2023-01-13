@@ -52,6 +52,11 @@
     <Content Remove="Config\IISUrlRewrite.Development.config" />
     <Content Remove="Config\meta.config" />
     <Content Remove="Config\meta.Development.config" />
+    <Content Remove="Themes\noopman\_BlogItem.cshtml" />
+    <Content Remove="Themes\noopman\_BlogItemSummary.cshtml" />
+    <Content Remove="Themes\noopman\_BlogPage.cshtml" />
+    <Content Remove="Themes\noopman\_BlogPageSummary.cshtml" />
+    <Content Remove="Themes\noopman\_Layout.cshtml" />
     <None Remove="Config\siteSecurity.Development.config" />
     <None Include="logs\logs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
