@@ -1,0 +1,37 @@
+.c-browser-frame {
+  position: relative;
+  margin-inline: auto;
+  padding: 30px 0 0;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: var(--background-color);
+  overflow: hidden
+}
+
+.c-browser-frame img {
+  box-shadow: none
+}
+
+.c-browser-frame::before {
+  --dot-size: 30px;
+  content: '\2022\2022\2022';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  block-size: var(--dot-size);
+  inline-size: 100%;
+  margin: 0;
+  padding: calc(.5 * var(--dot-size))0;
+  color: var(--foreground-color);
+  font-family: var(--font-family-code);
+  font-size: var(--dot-size);
+  line-height: 0;
+  text-indent: calc(.5 * var(--dot-size));
+  background: var(--offset-1-background);
+  border-bottom: 2px solid var(--foreground-color);
+  z-index: 1
+}
+
+.c-prose .c-browser-frame img {
+  margin: 0
+}

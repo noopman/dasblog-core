@@ -1,0 +1,435 @@
+@import url("assets/css/fontawesome.min.css");
+@import url("assets/css/regular.min.css");
+@import url("assets/css/brands.min.css");
+@import url("assets/css/solid.min.css");/*
+https://colorffy.com/color-scheme-generator
+*/
+
+/*
+Dark:
+// CSS PRIMARY COLORS
+--color-primary-500: #182227;
+--color-primary-600: #141b1f;
+--color-primary-700: #0f1517;
+--color-primary-800: #080c0e;
+--color-primary-900: #000000;
+
+Shades of #182227 The color shades scheme is a group of colors that are variations of a single hue, with different levels of lightness and darkness. This scheme creates a cohesive and subtle look.
+#182227 #161e22 #141a1e #111719 #0e1315 #090d0f #050708 #000000
+
+Tints of #182227 The color tints scheme is a group of colors that are variations of a single hue, with added white to create a lighter and more delicate look.
+#182227 #343d41 #525a5e #72787b #93989b #b6b9bb #dadcdd #ffffff
+
+Tones of #182227 The color tones scheme is a group of colors that are variations of a single hue, with added gray to create a muted and softer look.
+#182227 #252e33 #333b3f #42484b #515558 #606365 #707172 #808080
+
+Header Color:
+#516e34bb
+
+*/
+/*
+Light:
+// CSS PRIMARY COLORS
+--color-primary-500: #f0f8ff;
+--color-primary-600: #aeb4b9;
+--color-primary-700: #707477;
+--color-primary-800: #383a3b;
+--color-primary-900: #000000;
+
+Shades of #f0f8ff The color shades scheme is a group of colors that are variations of a single hue, with different levels of lightness and darkness. This scheme creates a cohesive and subtle look.
+#f0f8ff #cad0d6 #a5aaaf #828689 #606365 #404243 #232324 #000000
+
+Tints of #f0f8ff The color tints scheme is a group of colors that are variations of a single hue, with added white to create a lighter and more delicate look.
+#f0f8ff #f2f9ff #f4faff #f6fbff #f9fcff #fbfdff #fdfeff #ffffff
+
+Tones of #f0f8ff The color tones scheme is a group of colors that are variations of a single hue, with added gray to create a muted and softer look.
+#f0f8ff #dfe6ec #cfd4d9 #bec3c7 #aeb2b4 #9fa1a3 #8f9091 #808080
+
+Header Color:
+#FFABC2
+
+*/
+
+/* Common variables */
+:root {
+  --pf: 'Source Sans Pro', sans-serif;
+  --transition: all .5s;
+}
+/* Color Theme Variables */
+.light, body[color-theme="light"] {
+  --color-primary-1: #f0f8ff;
+  --color-primary-2: #cad0d6;
+  --color-primary-3: #a5aaaf;
+  --color-primary-4: #828689;
+  --color-primary-5: #606365;
+  --color-primary-6: #404243;
+  --color-primary-7: #232324;
+  --color-primary-8: #000000;
+  --clr-text: #182227;
+  --clr-element: #182227;
+  --clr-element-hover: #568061;
+  --visible-light: visible;
+  --visible-dark: none;
+}
+.dark, body[color-theme="dark"] {
+  --color-primary-1: #182227;
+  --color-primary-2: #343d41;
+  --color-primary-3: #525a5e;
+  --color-primary-4: #72787b;
+  --color-primary-5: #93989b;
+  --color-primary-6: #b6b9bb;
+  --color-primary-7: #dadcdd;
+  --color-primary-8: #ffffff;
+  --clr-text: #f0f8ff;
+  --clr-element: #f0f8ff;
+  --clr-element-hover: #ffabe4;
+  --visible-light: none;
+  --visible-dark: visible;
+}
+
+.visiblelight {
+  display: var(--visible-light);
+}
+.visibledark {
+  display: var(--visible-dark);
+}
+
+/* Add trantition to every element. */
+* {
+  transition: var(--transition);
+}
+
+body {
+  margin: 0;
+  background: var(--color-primary-1);
+  font-family: var(--pf);
+  transition: var(--transition);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  position: fixed;
+  background: var(--color-primary-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 5px 10px 0px var(--color-primary-2);
+  z-index: 100;
+}
+
+header .navdiv {
+  width: 100%;
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  align-items: center;
+}
+
+header nav input[type="checkbox"],
+header .hamburger-lines {
+  display: none;
+}
+
+header .logo-container {
+  margin-left: 15px;
+}
+header .logo-container .logo-main {
+  margin-bottom: 0px;
+  color: var(--clr-text);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 32px;
+}
+header .logo-container .logo-sub {
+  margin-top: 0px;
+  color: var(--clr-text);
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+header .menu {
+  font-weight: 500;
+  display: flex;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+header .menu li {
+  display: inline-block;
+  font-size: 24px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+header .menu li a {
+  color: var(--clr-element);
+  text-decoration: none;
+}
+header .menu li a:hover {
+  color: var(--clr-element-hover);
+}
+
+header .submenudiv {
+  display: none;
+  position: absolute;
+  white-space: nowrap;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 0px;
+  padding-left: 0px;
+  background: var(--color-primary-2);
+}
+header .submenu:hover .submenudiv {
+  display: block;
+}
+header .submenudiv ul {
+  display: flex;
+  flex-direction: column;
+}
+
+header .theme-symbol {
+  display: flex;
+  justify-content: left;
+}
+header .theme-switcher {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  color: var(--clr-element);
+}
+header .theme-switcher-btn {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+header .theme-icon {
+  stroke: var(--clr-element);
+  transition: color 0.2s ease-in-out;
+}
+header .theme-icon:hover {
+  stroke: var(--clr-element-hover);
+  transition: color 0.2s ease-in-out;
+}
+header .theme-switcher-lbl {
+  color: var(--clr-element);
+  margin: 0 auto;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+header .theme-switcher-lbl:hover {
+  color: var(--clr-element-hover);
+  transition: color 0.2s ease-in-out;
+}
+
+.mainbody {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 10px;
+  color: var(--clr-text);
+}
+
+footer {
+  color: var(--clr-element);
+  text-align: center;
+  background: var(--color-primary-2);
+  padding-top: 10px;
+}
+footer .center {
+  justify-content: center;
+}
+footer ul {
+  display: flex;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+footer li {
+  color: var(--clr-element);
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+footer .lbl {
+  font-size: 34px;
+}
+footer a {
+  color: var(--clr-element);
+  display: inline-block;
+  cursor: pointer;
+}
+footer a:hover {
+  color: var(--clr-element-hover);
+  transition: color 0.2s ease-in-out;
+}
+footer .end {
+  font-size: 18px;
+  padding-top: 10px;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+footer .end li {
+  font-size: 12px;
+}
+.pi {
+  width: 100%;
+  text-align: right;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 80px;
+  }
+
+  header .navdiv {
+    display: block;
+  }
+
+  header .hamburger-lines {
+    display: block;
+    height: 23px;
+    width: 35px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 210;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  header .hamburger-lines .line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+    background: var(--clr-text);
+    transition: color 0.3s ease-in-out;
+  }
+  header .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+  header .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+  header .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  header nav input[type="checkbox"] {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 30px;
+    top: 13px;
+    left: 22px;
+    z-index: 220;
+    opacity: 0;
+  }
+  header .navdiv input[type="checkbox"]:checked~.menu {
+    transform: translateX(0);
+  }
+  header .navdiv input[type="checkbox"]:checked~.hamburger-lines .line1 {
+    transform: rotate(35deg);
+  }
+  header .navdiv input[type="checkbox"]:checked~.hamburger-lines .line2 {
+    transform: scaleY(0);
+  }
+  header .navdiv input[type="checkbox"]:checked~.hamburger-lines .line3 {
+    transform: rotate(-35deg);
+  }
+
+  header .logo-container {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin-top: 0px;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  header .logo-container .logo-main {
+    margin-bottom: 0px;
+    color: var(--clr-text);
+    font-weight: 500;
+    text-decoration: none;
+    text-align: right;
+    font-size: 34px;
+  }
+  header .logo-container .logo-sub {
+    margin-top: 0px;
+    color: var(--clr-text);
+    font-weight: 400;
+    text-decoration: none;
+    text-align: right;
+    font-size: 28px;
+  }
+
+  header .menu {
+    padding-top: 100px;
+    background: var(--color-primary-2);
+    max-width: 330px;
+    transform: translate(-150%);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    margin-left: -40px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  header .menu li {
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
+
+  header .submenudiv {
+    transform: none;
+    margin-left: 50px;
+    padding-left: 0px;
+    position: relative;
+    white-space: nowrap;
+    background: none;
+  }
+
+  header .submenu:hover .submenudiv {
+    display: block;
+    transform: translate(150%);
+  }
+
+  header .submenudiv ul {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
+  header .theme-switcher {
+    width: 50px;
+    height: 50px;
+  }
+  header .theme-switcher-btn {
+    zoom: 200%;
+  }
+  header .theme-switcher-lbl {
+    color: var(--clr-element);
+    margin: 0 auto;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .mainbody {
+    width: 98%;
+    max-width: 768px;
+    padding-top: 60px;
+  }
+}

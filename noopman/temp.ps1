@@ -8,7 +8,5 @@ New-AzWebAppCertificate -ResourceGroupName $webapp.ResourceGroup -WebAppName $we
 
 New-AzWebAppCertificate -ResourceGroupName $webapp.ResourceGroup -WebAppName $webapp.Name -Name 'barahår' -HostName $fqdn -CertificateFilePath 'C:\temp\barahår.pfx' -CertificatePassword 'password'
 
-
-az webapp config ssl create --hostname $webapp.HostNames[1] --name $webapp.Name --resource-group $webapp.Resourcegroup
-
-                            [--slot]
+# az webapp config ssl create --hostname $webapp.HostNames[1] --name $webapp.Name --resource-group $webapp.Resourcegroup
+# [--slot]
