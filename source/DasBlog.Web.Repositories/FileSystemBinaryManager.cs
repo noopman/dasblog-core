@@ -1,7 +1,6 @@
 ﻿using DasBlog.Managers.Interfaces;
 using DasBlog.Services;
 using DasBlog.Services.ConfigFile;
-using DasBlog.Services.ConfigFile.Interfaces;
 using DasBlog.Services.FileManagement;
 using DasBlog.Services.FileManagement.Interfaces;
 using Microsoft.Extensions.Options;
@@ -16,15 +15,18 @@ namespace DasBlog.Managers
 		private readonly IBinaryDataService binaryDataService;
 		private readonly IDasBlogSettings dasBlogSettings;
 		private readonly IConfigFileService<MetaTags> metaTagFileService;
+		private readonly IConfigFileService<OEmbedProviders> oembedProvidersService;
 		private readonly IConfigFileService<SiteConfig> siteConfigFileService;
 		private readonly ConfigFilePathsDataOption options;
 		private readonly string contentBinaryUrl;
 
-		public FileSystemBinaryManager(IDasBlogSettings dasBlogSettings, IConfigFileService<MetaTags> metaTagFileService, 
+		public FileSystemBinaryManager(IDasBlogSettings dasBlogSettings, IConfigFileService<MetaTags> metaTagFileService,
+										 IConfigFileService<OEmbedProviders> oembedProvidersService,
 										IConfigFileService<SiteConfig> siteConfigFileService, IOptions<ConfigFilePathsDataOption> optionsAccessor)
 		{
 			this.dasBlogSettings = dasBlogSettings;
 			this.metaTagFileService = metaTagFileService;
+			this.oembedProvidersService = oembedProvidersService;
 			this.siteConfigFileService = siteConfigFileService;
 			options = optionsAccessor.Value;
 			contentBinaryUrl = dasBlogSettings.RelativeToRoot(options.BinaryUrlRelative);
@@ -33,7 +35,9 @@ namespace DasBlog.Managers
 
 			var loggingDataService = LoggingDataServiceFactory.GetService(Path.Combine(dasBlogSettings.WebRootDirectory, dasBlogSettings.SiteConfiguration.LogDir));
 
-			this.binaryDataService = BinaryDataServiceFactory.GetService(options.BinaryFolder, physBinaryPathUrl, loggingDataService);
+			var cdnManager = CdnManagerFactory.GetService(dasBlogSettings.SiteConfiguration.CdnFrom, dasBlogSettings.SiteConfiguration.CdnTo);
+
+			binaryDataService = BinaryDataServiceFactory.GetService(options.BinaryFolder, physBinaryPathUrl, loggingDataService, cdnManager);
 		}
 
 		public string SaveFile(Stream inputFile, string fileName)
@@ -44,6 +48,11 @@ namespace DasBlog.Managers
 		public bool SaveMetaConfig(MetaTags config)
 		{
 			return metaTagFileService.SaveConfig(config);
+		}
+
+		public bool SaveOEmbedProviders(OEmbedProviders providers)
+		{
+			return oembedProvidersService.SaveConfig(providers);
 		}
 
 		public bool SaveSiteConfig(SiteConfig config)
