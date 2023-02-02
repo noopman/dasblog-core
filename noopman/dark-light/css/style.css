@@ -1,0 +1,49 @@
+:root {
+  --transition_: all .5s;
+}
+
+.light,
+body[color-theme="light"] {
+  --bg_: #f0f8ff;
+  --clr-text_: #182227;
+}
+
+.dark,
+body[color-theme="dark"] {
+  --bg_: #182227;
+  --clr-text_: #FCE8Ec;
+}
+
+body {
+  background: var(--bg_);
+  transition: var(--transition_);
+}
+
+.box-lbl_ {
+  color: var(--clr-text_);
+}
+
+.icon_ {
+  stroke: var(--clr-text_);
+}
+
+.theme__switcher_ {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.theme__switcher_ .theme__switcher-btn_ {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition_);
+  top: 0;
+}
+
+body.light .theme__switcher_ .theme__switcher-btn_ {
+  top: -24px;
+}

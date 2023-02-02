@@ -3,68 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Color Theme Switcher</title>
+  <title>Home of @noopman</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body id="body" class="dark">
   <header>
     <nav>
-      <div class="navdiv">
         <input type="checkbox" name="">
         <div class="hamburger-lines">
           <span class="line line1"></span>
           <span class="line line2"></span>
           <span class="line line3"></span>
         </div>
-        <h1 class="logo-container">
-          <div class="logo-main"><a asp-area="" asp-controller="home" asp-action="index">Magnus&nbsp;M&aring;rtensson</a></div>
-          <div class="logo-sub"><a asp-area="" asp-controller="home" asp-action="index">(noopman)</a></div>
-        </h1>
-        <ul class="menu" id="menu">
-          <li><a asp-area="" asp-controller="home" asp-action="About">About</a></li>
-          <li><a asp-area="" asp-controller="home" asp-action="About#Loftysoft">Loftysoft AB</a></li>
-          <li><a asp-area="" asp-controller="home" asp-action="Speaking">Speaking</a></li>
-          <li><a asp-area="" asp-controller="home" asp-action="Articles">Articles</a></li>
-
-          <li class="submenu"><a asp-area="" asp-controller="home" asp-action="Blog">Blog</a>
-            <div class="submenudiv">
-              <ul class="menu">
-                <li><a asp-area="" asp-controller="category" asp-action="category">Category</a></li>
-                <li><a asp-area="" asp-controller="archive" asp-action="archive">Archive</a></li>
-                <li><a asp-area="" asp-controller="feed" asp-action="rss">Subscribe</a></li>
-                <li dasblog-authorized><a id="CreatePostLink" asp-area="" asp-controller="post" asp-action="create">Create Post</a></li>
-                <li dasblog-authorized><a asp-area="" asp-controller="admin" asp-action="settings">Site Admin</a></li>
-                <li dasblog-authorized><a asp-area="" asp-controller="admin" asp-action="managecomments">Manage Comments</a></li>
-                <li dasblog-authorized><a asp-area="" asp-controller="author" asp-action="index">Author</a></li>
-                <li dasblog-authorized><a asp-area="" asp-controller="activity" asp-action="index">Activity</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <span dd-toggle="theme" class="theme-symbol pointer">
-              <div id="toggle_theme" class="theme-switcher">
-                <span aria-hidden="true" title="Light theme switch" class="theme-switcher-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="theme-icon" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <div class="menu">
+          <div class="me-container">
+            <a asp-area="" asp-controller="home" asp-action="index">
+              <img class="me-photo" alt="Magnus Mårtensson">
+            </a>
+          </div>
+          <div class="logo-container">
+            <div class="logo-main"><a asp-area="" asp-controller="home" asp-action="index">Magnus&nbsp;M&aring;rtensson</a></div>
+            <div class="logo-sub"><a asp-area="" asp-controller="home" asp-action="about#noopman">(noopman)</a></div>
+          </div>
+          <ul>
+            <li><a asp-area="" asp-controller="home" asp-action="About">About</a></li>
+            <li><a asp-area="" asp-controller="home" asp-action="About#Loftysoft">Loftysoft AB</a></li>
+            <li><a asp-area="" asp-controller="home" asp-action="Speaking">Speaking</a></li>
+            <li><a asp-area="" asp-controller="home" asp-action="Articles">Articles</a></li>
+          
+            <li class="submenu"><a asp-area="" asp-controller="home" asp-action="Blog">Blog</a>
+              <div class="submenudiv">
+                <ul>
+                  <li><a asp-area="" asp-controller="home" asp-action="Blog">Posts</a></li>
+                  <li><a asp-area="" asp-controller="category" asp-action="category">Categories</a></li>
+                  <li><a asp-area="" asp-controller="archive" asp-action="archive">Archives</a></li>
+                  <li><a asp-area="" asp-controller="feed" asp-action="rss">Subscribe</a></li>
+                  <li dasblog-authorized><a id="CreatePostLink" asp-area="" asp-controller="post" asp-action="create">Create
+                      Post</a></li>
+                  <li dasblog-authorized><a asp-area="" asp-controller="admin" asp-action="settings">Site Admin</a></li>
+                  <li dasblog-authorized><a asp-area="" asp-controller="admin" asp-action="managecomments">Manage Comments</a>
+                  </li>
+                  <li dasblog-authorized><a asp-area="" asp-controller="author" asp-action="index">Author</a></li>
+                  <li dasblog-authorized><a asp-area="" asp-controller="activity" asp-action="index">Activity</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><span toggle="theme">
+              <div class="theme_label">
+              <label class="visiblelight">
+                <div class="theme-switcher-lbl">Deluminate</div>
+              </label><label class="visibledark">
+                <div class="theme-switcher-lbl">Illuminate</div>
+              </label>
+              </div>
+              <div class="theme_switcher">
+                <span class="theme-switcher-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="theme-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" />
                     <circle cx="12" cy="12" r="4" />
                     <path d="M3 12h1M12 3v1M20 12h1M12 20v1M5.6 5.6l.7 .7M18.4 5.6l-.7 .7M17.7 17.7l.7 .7M6.3 17.7l-.7 .7" />
                   </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="theme-icon" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="theme-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" />
                     <path d="M16.2 4a9.03 9.03 0 1 0 3.9 12a6.5 6.5 0 1 1 -3.9 -12" />
                   </svg>
                 </span>
               </div>
-              &nbsp;<label class="visiblelight" for="toggle_theme"><div class="theme-switcher-lbl">Deluminate</div></label><label
-                class="visibledark" for="toggle_theme"><div class="theme-switcher-lbl">Illuminate</div></label>
-            </span>
-          </li>
-        </ul>
-      </div>
+            </span></li>
+            <!-- <li>
+              <span dd-toggle="theme" class="theme-symbol pointer">
+                <label class="visiblelight" for="toggle_theme">
+                  <div class="theme-switcher-lbl">Deluminate</div>
+                </label><label class="visibledark" for="toggle_theme">
+                  <div class="theme-switcher-lbl">Illuminate</div>
+                </label>
+                &nbsp;
+                <div id="toggle_theme" class="theme-switcher">
+                  <span aria-hidden="true" title="Light theme switch" class="theme-switcher-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="theme-icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24"
+                      stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M3 12h1M12 3v1M20 12h1M12 20v1M5.6 5.6l.7 .7M18.4 5.6l-.7 .7M17.7 17.7l.7 .7M6.3 17.7l-.7 .7" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="theme-icon icon-tabler icon-tabler-sun" width="24" height="24" viewBox="0 0 24 24"
+                      stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16.2 4a9.03 9.03 0 1 0 3.9 12a6.5 6.5 0 1 1 -3.9 -12" />
+                    </svg>
+                  </span>
+                </div>
+              </span>
+            </li> -->
+          </ul>
+          <div class="social">
+            <ul>
+              <li><a href="https://hachyderm.io/@noopman" target="_blank"><i aria-hidden="true"
+                    title="Mastodon @noopman@hachyderm" class="lbl fa-brands fa-mastodon"></i></a></li>
+              <li><a href="https://twitter.com/noopman" target="_blank"><i aria-hidden="true" title="Twitter @noopman"
+                    class="lbl fa-brands fa-twitter"></i></a></li>
+              <li><a href="https://facebook.com/noopman" target="_blank"><i aria-hidden="true" title="Magnus on Facebook"
+                    class="lbl fa-brands fa-facebook"></i></a></li>
+              <li><a href="https://github.com/noopman" target="_blank"><i aria-hidden="true" title="GitHub @noopman"
+                    class="lbl fa-brands fa-github"></i></a></li>
+            </ul>
+            <ul>
+              <li><a href="https://linkedin.com/in/noopman" target="_blank"><i aria-hidden="true" title="Magnus on LinkedIn"
+                    class="lbl fa-brands fa-linkedin"></i></a></li>
+              <li><a href="https://www.youtube.com/c/magnusmartensson" target="_blank"><i aria-hidden="true"
+                    title="Magnus on YouTube" class="lbl fa-brands fa-youtube"></i></a></li>
+              <li><a href="https://www.instagram.com/noopman" target="_blank"><i aria-hidden="true" title="Instagram noopman"
+                    class="lbl fa-brands fa-instagram"></i></a></li>
+              <li><a href="https://noopman.com/blog/rss" target="_blank"><i aria-hidden="true" title="noopman blog feed"
+                    class="lbl fa-solid fa-rss"></i></a>
+              </li>
+            </ul>
+          </div>          
+        </div>
     </nav>
   </header>
 
-  <div class="mainbody">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue
+  <div class="mainbody">
+  <h1>This is the title</h1>  
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue
   ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas
   mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu
   vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut
@@ -125,21 +186,10 @@
   </div>
 
   <footer>
-    <ul class="center">
-      <li><a href="https://hachyderm.io/@noopman" target="_blank"><i aria-hidden="true" title="Mastodon @noopman@hachyderm" class="lbl fa-brands fa-mastodon"></i></a></li>
-      <li><a href="https://twitter.com/noopman" target="_blank"><i aria-hidden="true" title="Twitter @noopman" class="lbl fa-brands fa-twitter"></i></a></li>
-      <li><a href="https://facebook.com/noopman" target="_blank"><i aria-hidden="true" title="Magnus on Facebook" class="lbl fa-brands fa-facebook"></i></a></li>
-      <li><a href="https://github.com/noopman" target="_blank"><i aria-hidden="true" title="GitHub @noopman" class="lbl fa-brands fa-github"></i></a></li>
-      <li><a href="https://linkedin.com/in/noopman" target="_blank"><i aria-hidden="true" title="Magnus on LinkedIn" class="lbl fa-brands fa-linkedin"></i></a></li>
-      <li><a href="https://www.youtube.com/c/magnusmartensson" target="_blank"><i aria-hidden="true" title="Magnus on YouTube" class="lbl fa-brands fa-youtube"></i></a></li>
-      <li><a href="https://www.instagram.com/noopman" target="_blank"><i aria-hidden="true" title="Instagram noopman" class="lbl fa-brands fa-instagram"></i></a></li>
-      <li><a href="https://noopman.com/blog/rss" target="_blank"><i aria-hidden="true" title="noopman blog feed" class="lbl fa-solid fa-rss"></i></a>
-      </li>
-    </ul>
-    <div class="end">
-      <site-copyright />&copy Magnus M&aringrtensson 2022.
+    <div class="alonetime">
+      <span class="center"><site-copyright />&copy; Magnus M&aring;rtensson (noopman) 2022.</span>
       <ul class="center">
-        <li>Credits:</li>
+        <li><span class="lbl">Credits:</span></li>
         <li><a href="https://github.com/poppastring/dasblog-core" target="_blank">Dasblog</a></li>
         <li>|</li>
         <li><a href="https://fontawesome.com" target="_blank">Fontawesome</a></li>
@@ -148,32 +198,31 @@
       </ul>
     </div>
   </footer>
-  <div class="pi">&pi;&nbsp;</div>
+
+  <div class="pi"><a class="pi" href="https://www.youtube.com/watch?v=pXPXMxsXT28" target="_blank">&pi;&nbsp;</a></div>
 
   <script>
     // Set the theme from localStorage(if exist) || or set default dark
     let theme = window.localStorage.getItem('theme') || 'dark';
     // Activate the current theme (using class)
     body.classList = theme;
-    // Or Activate the current theme (using attribute)
-    // body.setAttribute('color-theme', theme);
-    // Available Themes
-    let available_themes = document.querySelectorAll('[dd-theme]');
     /** Light / Dark theme Toggle */
     // Toggle Dark / Light theme
-    let _toggler = document.querySelector('[dd-toggle]');
+    let _toggler = document.querySelector('[toggle]');
     _toggler.addEventListener('click', toggleTheme);
+
     // Function: toggle theme(light & dark)
     function toggleTheme() {
       // Toggle light / dark theme
-      ( theme == 'light' ? theme = 'dark' : theme = 'light');
+      (theme == 'light' ? theme = 'dark' : theme = 'light');
       // Apply class to body (using class)
       body.classList = theme;
       // Apply class to body (using attribute)
       // body.setAttribute('color-theme', theme);
       // Store theme var to localStorage
-      window.localStorage.setItem('theme', theme );
+      window.localStorage.setItem('theme', theme);
     }
+  </script>
   </script>
 </body>
 </html>
