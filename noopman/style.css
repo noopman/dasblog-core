@@ -56,7 +56,6 @@ Header Color:
   --page-font: 'Source Sans Pro', sans-serif;
   --reading-font: 'Times New Roman', Times, serif;
   --transition: all .5s;
-  --transition_: all .5s;
 }
 
 /* Color Theme Variables */
@@ -64,6 +63,7 @@ Header Color:
 body[color-theme="light"] {
   --color-primary-1: #f0f8ff;
   --color-primary-2: #cad0d6;
+  --color-primary-2-reverse: #343d41;
   --color-primary-3: #a5aaaf;
   --color-primary-4: #828689;
   --color-primary-5: #606365;
@@ -72,11 +72,12 @@ body[color-theme="light"] {
   --color-primary-8: #000000;
   --clr-text: #182227;
   --clr-element: #182227;
+  --clr-element-reverse: #f0f8ff;
   --clr-element-hover: #568061;
+  --clr-element-hover-reverse: #ffabe4;
   --visible-light: visible;
   --visible-dark: none;
   --me-photo: url("images/Magnus.light.jpg");
-  --bg_: #f0f8ff;
   --clr-text_: #182227;
 }
 
@@ -84,6 +85,7 @@ body[color-theme="light"] {
 body[color-theme="dark"] {
   --color-primary-1: #182227;
   --color-primary-2: #343d41;
+  --color-primary-2-reverse: #cad0d6;
   --color-primary-3: #525a5e;
   --color-primary-4: #72787b;
   --color-primary-5: #93989b;
@@ -92,11 +94,12 @@ body[color-theme="dark"] {
   --color-primary-8: #ffffff;
   --clr-text: #f0f8ff;
   --clr-element: #f0f8ff;
+  --clr-element-reverse: #182227;
   --clr-element-hover: #ffabe4;
+  --clr-element-hover-reverse: #568061;
   --visible-light: none;
   --visible-dark: visible;
   --me-photo: url("images/Magnus.dark.jpg");
-  --bg_: #182227;
   --clr-text_: #FCE8Ec;
 }
 
@@ -115,10 +118,8 @@ body[color-theme="dark"] {
 
 body {
   margin: 0;
-  /* background: var(--color-primary-1);
-  transition: var(--transition); */
-  background: var(--bg_);
-  transition: var(--transition_);
+  background: var(--color-primary-1);
+  transition: var(--transition);
   font-family: var(--page-font);
 }
 
@@ -145,11 +146,9 @@ header {
   left: 0px;
   width: 300px;
   height: 100%;
-  padding: 15px 0px;
   position: fixed;
-  align-items: center;
   justify-content: space-between;
-  background: var(--color-primary-2);
+  background-color: var(--color-primary-2);
   z-index: 2;
 }
 
@@ -176,8 +175,6 @@ header .logo-container .logo-main {
   margin-bottom: 0px;
   font-weight: 500;
   font-size: 28px;
-  color: var(--clr-text);
-  text-decoration: none;
 }
 
 header .logo-container .logo-sub {
@@ -189,16 +186,23 @@ header .logo-container .logo-sub {
 }
 
 header .menu {
-  font-weight: 500;
   white-space: nowrap;
+  margin-top: 20px;
 }
 
 header .menu li {
   display: block;
   font-size: 24px;
-  padding-left: 10px;
+  padding: 0;
+}
+
+header .menu .menu-text-items li {
+  margin-bottom: 10px;
+}
+
+header .menu .social li {
   padding-right: 10px;
-  cursor: pointer;
+  margin-right: 10px;
 }
 
 header a {
@@ -239,90 +243,103 @@ header .theme-symbol {
   transition: var(--transition);
 }
 
-/* header .theme-switcher {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  color: var(--clr-element);
-} */
-
-header .theme_label {
+header .theme-label {
   position: relative;
   display: inline-block;
-  margin: 0;
-  padding: 30px 0;
+  font-size: 20px;
+  padding: 2px 0 0 0;
 }
 
-header .theme_switcher {
+header .theme-switcher {
   position: relative;
   overflow: hidden;
   display: inline-block;
   width: 25px;
   height: 25px;
   margin: 0;
-  padding: 0;
+  padding: 0 0 1px 0;
+  vertical-align: middle;
 }
 
 header .theme-switcher-btn {
   position: absolute;
   display: flex;
   flex-direction: column;
-  transition: var(--transition);
+  top: 0;
 }
 
-body.light .theme-switcher .theme-switcher-btn {
+body.light .theme-switcher-btn {
   top: -24px;
 }
 
+header .other-theme-frame {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 20px 0;
+  width: 100%;
+}
+
+header .other-theme {
+  background: var(--color-primary-2-reverse);
+  color: var(--clr-element-reverse);
+  padding: 5px;
+  width: fit-content;
+  border-radius: 10px;
+}
+
 header .theme-icon {
-  stroke: var(--clr-element);
+  stroke: var(--clr-element-reverse);
   transition: color 0.2s ease-in-out;
 }
 
 header .theme-icon:hover {
-  stroke: var(--clr-element-hover);
+  stroke: var(--clr-element-hover-reverse);
   transition: color 0.2s ease-in-out;
 }
 
 header .theme-switcher-lbl {
-  color: var(--clr-element);
   margin: 0 auto;
   cursor: pointer;
-  transition: var(--transition);
-}
-
-header .theme-switcher-lbl:hover {
-  color: var(--clr-element-hover);
   transition: color 0.2s ease-in-out;
 }
 
-.theme_switcher .theme-switcher-btn {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  transition: var(--transition_);
-  top: 0;
-}
-
-body.light .theme_switcher .theme-switcher-btn {
-  top: -24px;
+header .theme-switcher-lbl:hover {
+  color: var(--clr-element-hover-reverse);
+  transition: color 0.2s ease-in-out;
 }
 
 header .social {
-  bottom: 0px;
+  bottom: 0;
   position: fixed;
-  padding: 15px 0px;
+  padding: 0;
+  width: 300px;
+}
+
+header .social-frame-up {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 5px 0;
+  width: 100%;
+}
+
+header .social-frame-down {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 10px 0;
+  width: 100%;
 }
 
 header .social ul {
-  display: flex;
+  display: contents;
   flex-direction: row;
 }
 
 header .social .lbl {
   font-size: 30px;
+}
+
+.page_top {
+  display: none;
 }
 
 .mainbody {
@@ -367,16 +384,24 @@ footer ul li {
 
 @media (max-width: 768px) {
   header {
-    width: 100%;
-    height: 100%;
     position: fixed;
     transform: none;
     transition: var(--transition);
     display: flex;
-    align-items: center;
     justify-content: space-between;
     background: none;
-    box-shadow: none;
+  }
+
+  header .me-container .me-photo {
+    zoom: 0.6;
+  }
+
+  header .logo-container .logo-main {
+    font-size: 20px;
+  }
+
+  header .logo-container .logo-sub {
+    font-size: 16px;
   }
 
   header .hamburger-lines {
@@ -386,10 +411,13 @@ footer ul li {
     position: absolute;
     top: 17px;
     left: 20px;
-    z-index: 210;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: var(--color-primary-2);
+    padding: 10px;
+    border-radius: 20px;
+    z-index: 210;
   }
 
   header .hamburger-lines .line {
@@ -449,30 +477,12 @@ footer ul li {
     cursor: pointer;
   }
 
-  header .logo-container .logo-main {
-    margin-bottom: 0px;
-    color: var(--clr-text);
-    font-weight: 500;
-    text-decoration: none;
-    font-size: 34px;
-  }
-
-  header .logo-container .logo-sub {
-    margin-top: 0px;
-    color: var(--clr-text);
-    font-weight: 400;
-    text-decoration: none;
-    font-size: 28px;
-  }
-
   header .menu {
-    padding-top: 20px;
-    background: var(--color-primary-2);
-    transform: translate(-150%);
+    margin-top: 00px;
+    padding: 20px;
+    transform: translate(-350px);
     transition: var(--transition);
-    margin-left: -40px;
-    padding-left: 50px;
-    padding-right: 50px;
+    background-color: var(--color-primary-2);
   }
 
   header .menu ul {
@@ -480,16 +490,12 @@ footer ul li {
     flex-direction: column;
   }
 
-  header .menu li {
-    margin-bottom: 20px;
-    font-size: 50px;
-  }
-
   header .submenudiv {
     transform: none;
     position: absolute;
-    margin-left: 50px;
-    padding-left: 0px;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-right: 60px;
     white-space: nowrap;
     z-index: 201;
   }
@@ -507,17 +513,32 @@ footer ul li {
     padding: 0;
   }
 
-  header .theme-switcher {
-    width: 50px;
-    height: 50px;
-  }
-  
-  header .theme-switcher-lbl {
-    transition: var(--transition);
+  .page_top {
+    display: contents;
   }
 
-  header .theme-switcher-btn {
-    zoom: 200%;
+  .page_top .page_top_frame {
+    text-align: center;
+    padding: 50px;
+    background-color: var(--color-primary-2);
+  }
+
+  .page_top .me-container .me-photo {
+    border-radius: 50%;
+    content: var(--me-photo);
+  }
+
+  .page_top .logo-container .logo-main {
+    padding-top: 20px;
+    font-size: 32px;
+    color: var(--clr-text);
+  }
+
+  .page_top .logo-container .logo-sub {
+    margin-top: 0px;
+    font-weight: 400;
+    font-size: 28px;
+    color: var(--clr-text);
   }
 
   .mainbody {
@@ -527,7 +548,7 @@ footer ul li {
     padding-left: 0px;
     padding-right: 0px;
     padding-top: 40px;
-    padding-bottom: 0px;
+    padding-bottom: 20px;
   }
 
   header .social {
@@ -537,9 +558,5 @@ footer ul li {
   header .social ul {
     display: flex;
     flex-direction: row;
-  }
-
-  header .social .lbl {
-    font-size: 50px;
   }
 }
